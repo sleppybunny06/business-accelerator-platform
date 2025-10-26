@@ -95,15 +95,31 @@ To deploy updates:
    ```
 3. **Vercel will auto-deploy** from GitHub!
 
-## 🆘 Troubleshooting
+## 🚨 FIXING "index.html not found" ERROR
+
+**If Vercel says "index.html not found" or "Your production domain is not serving traffic":**
+
+1. **Go to your Vercel dashboard** → Your project → **Settings** → **General**
+
+2. **Update these settings exactly:**
+   - **Root Directory**: `client` (NOT `./client`, NOT empty)
+   - **Framework Preset**: `Create React App` (select from dropdown)
+   - **Build Command**: `npm run build` (or leave empty)
+   - **Output Directory**: `build` (or leave empty)
+
+3. **Click "Save"**
+
+4. **Trigger new deployment:**
+   - Go to **Deployments** tab
+   - Click "Redeploy" on latest deployment
+   - OR push any commit to trigger auto-deploy
+
+**Why this happens:** Vercel was looking for index.html in the wrong place. Your React app is in the `client` folder, not the root.
+
+## 🆘 Other Troubleshooting
 
 ### Common Issues:
 - **Build failures**: Check build logs in Vercel dashboard
-- **"Could not find index.html" error**: 
-  - Ensure Root Directory is set to `client` (not `./client`)
-  - Ensure Framework Preset is set to "Create React App"
-  - Verify that client/public/index.html exists in your repository
-  - Check that client/package.json exists and contains correct build script
 - **Environment variables**: Ensure all required vars are set
 - **API connection**: Verify REACT_APP_API_URL is correct
 - **CORS errors**: Update server CORS settings for production domain
