@@ -9,6 +9,8 @@ import { Box } from '@mui/material';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { SocketProvider } from './contexts/SocketContext';
 
+// Deploy trigger comment
+
 // Layout Components
 import Navbar from './components/Layout/Navbar';
 import Footer from './components/Layout/Footer';
