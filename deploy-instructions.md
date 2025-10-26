@@ -32,11 +32,11 @@
 3. **Click "New Project"**
 4. **Import your repository**: `sleppybunny06/business-accelerator-platform`
 5. **Configure project settings:**
-   - Framework Preset: **React**
-   - Root Directory: `./client`
-   - Build Command: `npm run build`
-   - Output Directory: `build`
-   - Install Command: `npm install`
+   - Framework Preset: **Create React App**
+   - Root Directory: `client`
+   - Build Command: `npm run build` (leave empty if auto-detected)
+   - Output Directory: `build` (leave empty if auto-detected)
+   - Install Command: `npm install` (leave empty if auto-detected)
 
 6. **Set Environment Variables:**
    ```
@@ -99,6 +99,11 @@ To deploy updates:
 
 ### Common Issues:
 - **Build failures**: Check build logs in Vercel dashboard
+- **"Could not find index.html" error**: 
+  - Ensure Root Directory is set to `client` (not `./client`)
+  - Ensure Framework Preset is set to "Create React App"
+  - Verify that client/public/index.html exists in your repository
+  - Check that client/package.json exists and contains correct build script
 - **Environment variables**: Ensure all required vars are set
 - **API connection**: Verify REACT_APP_API_URL is correct
 - **CORS errors**: Update server CORS settings for production domain
