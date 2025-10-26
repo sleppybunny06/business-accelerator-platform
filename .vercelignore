@@ -1,0 +1,8 @@
+server/
+dist/
+*.md
+.env
+.env.local
+package.json
+node_modules/
+!client/
